@@ -11,11 +11,12 @@
 
 <body>
     <script>
-        var computerGuess = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        var compChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
         document.onkeyup = function (e) {
 
         var userGuess = e.key;
+        var compGuess = compChoice[Math.floor(Math.random() * compChoice,length)];
          }
 
 
