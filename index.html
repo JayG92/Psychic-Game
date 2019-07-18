@@ -11,15 +11,64 @@
 
 <body>
     <script>
-        var compChoice = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        <div>
+            <p id="userChoice-text"></p>
+            <p id="compChoice-text"></p>
+            <p id="wins-text"></p>
+            <p id="loses-text"></p>
+            <p id="ties-text"></p>
+        </div>
+
+
+
+        var userGuess = [];
+        var wins = 0;
+        var losses = 0;
+
+
+        var computerPicks = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        var compChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
+        var userChoiceText = document.getElementById("userChoice-text")
+        var computerPicksText = document.getElementById("computerPicks-text")
+        var winsText = document.getElementById("wins-text")
+        var lossesText = document.getElementById("losses-text")
+
+
 
         document.onkeyup = function (e) {
 
-        var userGuess = e.key;
-        var compGuess = compChoice[Math.floor(Math.random() * compChoice,length)];
-         }
+            var userGuess = e.key;
+            var compGuess = computerPicks[Math.floor(Math.random() * computerPicks.length)];
+            var computerGuess = computerChoices[randomIndex];
+            if (userGuess === compGuess) {
+                console.log("correct");
+                wins++;
+                alert("You Guessed it!")
+
+            }
+            if (userGuess !== compGuess) {
+                console.log("wrong!");
+                wins++;
+                alert("Try Again!")
+
+            }
 
 
+
+
+
+
+
+
+
+        }
+
+        userChoiceText.textContent = "You Chose: " + userGuess;
+        computerPicksText.textContent = "Computer Chose: " + computer;
+        winsText.textContent = "wins" + wins;
+        losesText.textContent = "loses" + loses;
+        tiesText.textContent = "ties" + ties;
 
 
 
