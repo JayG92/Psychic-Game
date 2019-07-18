@@ -26,9 +26,10 @@
         var lettersGuessed = []
 
 
-        var $wins =document.getElementById("winsCount")
+        var $wins =document.getElementById("winsCount");
         var $letterPressed = document.getElementById("letterPressed");
         // var $interface = document.getElementById("interface");
+        var $losses = document.getElementById("lossesCount");
         var randomIndex = [Math.floor(Math.random() * letterOptions.length)];
         var correctLetter = letterOptions[randomIndex];
         console.log(correctLetter);
