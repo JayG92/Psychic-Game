@@ -27,7 +27,7 @@
 
 
         var computerPicks = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-        var compChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "o", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
         var userChoiceText = document.getElementById("userChoice-text")
         var computerPicksText = document.getElementById("computerPicks-text")
@@ -39,7 +39,7 @@
         document.onkeyup = function (e) {
 
             var userGuess = e.key;
-            var compGuess = computerPicks[Math.floor(Math.random() * computerPicks.length)];
+            var compGuess = computerPicks[Math.floor(Math.random() * computerChoices.length)];
             var computerGuess = computerChoices[randomIndex];
             if (userGuess === compGuess) {
                 console.log("correct");
@@ -55,17 +55,10 @@
             }
 
 
-
-
-
-
-
-
-
         }
 
         userChoiceText.textContent = "You Chose: " + userGuess;
-        computerPicksText.textContent = "Computer Chose: " + computer;
+        computerPicksText.textContent = "Computer Chose: " + computerGuess;
         winsText.textContent = "wins" + wins;
         losesText.textContent = "loses" + loses;
         tiesText.textContent = "ties" + ties;
