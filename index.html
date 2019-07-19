@@ -35,7 +35,7 @@
         var $lettersGuessed = document.getElementById("lettersGuessed")
         var randomIndex = [Math.floor(Math.random() * letterOptions.length)];
         var correctLetter = letterOptions[randomIndex];
-        var guessesLeft = document.getElementById("guessesLeft")
+        var $guessesLeft = document.getElementById("guessCount")
         console.log(correctLetter);
 
 
@@ -44,7 +44,7 @@
         document.onkeyup = function (event) {
             var userGuess = event.key;
             console.log(userGuess)
-            $letterPressed.innerText = userGuess;
+            // $letterPressed.innerText = userGuess;
             if (userGuess === correctLetter) {
                 wins++;
                 // guessesLeft= 9;
@@ -55,10 +55,10 @@
                 correctLetter = letterOptions[randomIndex];
                 console.log(correctLetter);
             }
-            if (userGuess !== letterOptions) {
+            if (userGuess !== correctLetter) {
                 losses++;
                 guessesLeft--;
-
+                // $guessesLeft.innerText=$guessesLeft
                 $losses.innerText=losses
 
                 $interface.innerText = "Wrong!, Try again."
@@ -68,14 +68,20 @@
 
             }
 
-            if (guessesLeft === 0) {
-                guessesLeft = 9;
-                losses++;
-                
+            if (userGuess !== correctLetter) {
+                guessesLeft--;
+                // losses++;
                 $guessesLeft.innerText=guessesLeft
+                
 
 
 
+            }
+            if (guessesLeft === 0){
+                guessesLeft=9;
+                losses ++;
+                $guessesLeft.innerText=guessesLeft
+        
             }
             // $letterPressed.innerText = userGuess;
             // $wins.innerText = wins;
