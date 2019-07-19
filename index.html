@@ -28,30 +28,37 @@
         var lettersGuessed = []
 
 
-        var $wins =document.getElementById("winsCount")
+        var $wins = document.getElementById("winsCount")
         var $letterPressed = document.getElementById("letterPressed");
         // var $interface = document.getElementById("interface");
         var $losses = document.getElementById("lossesCount");
-        var $lettersGuessed = document.getElementById("")
+        var $lettersGuessed = document.getElementById("lettersGuessed")
         var randomIndex = [Math.floor(Math.random() * letterOptions.length)];
         var correctLetter = letterOptions[randomIndex];
+        var guessesLeft = document.getElementById("guessesLeft")
         console.log(correctLetter);
+
+
+
+
         document.onkeyup = function (event) {
             var userGuess = event.key;
             console.log(userGuess)
             $letterPressed.innerText = userGuess;
             if (userGuess === correctLetter) {
                 wins++;
-                guessesLeft= 9;
-                $wins.innerText=wins
-                
+                // guessesLeft= 9;
+                $wins.innerText=wins;
+
                 $interface.innerText = "Correct!";
                 randomIndex = [Math.floor(Math.random() * letterOptions.length)];
                 correctLetter = letterOptions[randomIndex];
                 console.log(correctLetter);
             }
-            if (userGuess !== correctLetter) {
-                losses++
+            if (userGuess !== letterOptions) {
+                losses++;
+                guessesLeft--;
+
                 $losses.innerText=losses
 
                 $interface.innerText = "Wrong!, Try again."
@@ -60,7 +67,28 @@
                 console.log(correctLetter);
 
             }
+
+            if (guessesLeft === 0) {
+                guessesLeft = 9;
+                losses++;
+                
+                $guessesLeft.innerText=guessesLeft
+
+
+
+            }
+            // $letterPressed.innerText = userGuess;
+            // $wins.innerText = wins;
+            // $losses.innerText = losses;
+
+
         }
+
+
+
+
+
+
 
     </script>
 </body>
